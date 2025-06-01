@@ -14,11 +14,11 @@ export const routes: Routes = [
         component: HomeComponent
     },
     {
-        path: '**',
-        component: ErrorComponent
-    },
-    {
         path: 'contact',
         component: ContactComponent
+    },
+    {
+        path: '**',
+        component: ErrorComponent
     }
 ];
