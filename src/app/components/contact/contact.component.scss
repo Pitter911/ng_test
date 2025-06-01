@@ -10,6 +10,10 @@
     max-width: 650px;
     margin: 2.5rem auto;
     gap: 2.5rem;
+    // Animación de entrada
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 
     @media (max-width: 700px) {
         flex-direction: column;
@@ -19,11 +23,21 @@
     }
 }
 
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .contact-photo {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    // Animación de fade-in para la foto
+    opacity: 0;
+    animation: fadeIn 1s 0.4s forwards;
 
     img {
         border-radius: 50%;
@@ -34,12 +48,40 @@
         width: 100px;
         height: 100px;
         object-fit: cover;
+        // Animación de escala al aparecer
+        transform: scale(0.8);
+        opacity: 0;
+        animation: scaleIn 0.7s 0.7s forwards;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    to {
+        transform: scale(1);
+        opacity: 1;
     }
 }
 
 .contact-info {
     flex: 1;
     min-width: 260px;
+    // Animación de fade-in lateral
+    opacity: 0;
+    transform: translateX(40px);
+    animation: fadeInRight 0.8s 0.6s forwards;
+
+    @keyframes fadeInRight {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
 
     h2 {
         font-size: 2rem;
@@ -47,6 +89,9 @@
         margin-bottom: 1.5rem;
         font-weight: 700;
         letter-spacing: 1px;
+        // Animación de fade-in para el título
+        opacity: 0;
+        animation: fadeIn 0.8s 1s forwards;
     }
 
     form {
@@ -73,13 +118,14 @@
                 border-radius: 7px;
                 font-size: 1rem;
                 background: #fafbfc;
-                transition: border-color 0.2s;
+                transition: border-color 0.2s, box-shadow 0.2s;
                 outline: none;
                 resize: none;
 
                 &:focus {
                     border-color: #1976d2;
                     background: #fff;
+                    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.15);
                 }
             }
 
@@ -101,12 +147,17 @@
             letter-spacing: 0.5px;
             cursor: pointer;
             box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
-            transition: background 0.2s, box-shadow 0.2s;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
 
             &:hover {
                 background: linear-gradient(90deg, #1565c0 60%, #1976d2 100%);
                 box-shadow: 0 4px 16px rgba(25, 118, 210, 0.12);
+                transform: translateY(-2px) scale(1.04);
             }
+
+            // Animación de fade-in para el botón
+            opacity: 0;
+            animation: fadeIn 0.8s 1.2s forwards;
         }
     }
 }
