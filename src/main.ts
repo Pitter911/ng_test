@@ -1,10 +1,6 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideRouter, withHashLocation } from '@angular/router';
+import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
-import { routes } from './app/app.routes';
 
-bootstrapApplication(AppComponent, {
-  providers: [
-    provideRouter(routes, withHashLocation()) // esta línea cambia el modo de ruta
-  ]
-});
+bootstrapApplication(AppComponent, appConfig)
+  .catch((err) => console.error(err));
