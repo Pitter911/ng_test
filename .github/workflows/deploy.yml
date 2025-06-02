@@ -4,7 +4,6 @@ on:
   push:
     branches: ["main"]
 
-  # Permite ejecutar este workflow manualmente desde la pestaña de Actions
   workflow_dispatch:
 
 jobs:
@@ -24,10 +23,10 @@ jobs:
         run: npm install
 
       - name: Build Angular project
-        run: npm run build -- --configuration=production
+        run: npm run build -- --configuration=production --base-href=/ng_test/
 
       - name: Deploy to GitHub Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npx angular-cli-ghpages --dir=dist/ng_test --name="Pitter911" --email="pedrogarcia8323@gmail.com" --repo=https://github.com/Pitter911/ng_test.git --base-href=/ng_test/
+          npx angular-cli-ghpages --dir=dist/ng_test --name="Pitter911" --email="pedrogarcia8323@gmail.com" --repo=https://github.com/Pitter911/ng_test.git
