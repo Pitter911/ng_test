@@ -3,7 +3,7 @@ name: Build & Deploy to GitHub Pages
 
 on:
  push:
-   branches: ["master"]
+   branches: ["master", "gh-pages"]
 
 
  # Allows you to run this workflow manually from the Actions tab
